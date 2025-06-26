@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: index.html
+    destination: /var/www/html/index.html
+
+hooks:
+  ApplicationStart:
+    - location: scripts/install_httpd.sh
+      timeout: 300
+      runas: root
+    - location: scripts/start_server.sh
+      timeout: 300
+      runas: root
